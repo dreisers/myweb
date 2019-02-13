@@ -29,6 +29,8 @@ import oracle.net.aso.a;
 	    dbopen =new DBOpen(); //데이터베이스 연결 객체 할당
 	    dbclose=new DBClose();
 	  }
+	  
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 답 변 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
 
 	  public void insertArticle(BoardDataBean article) throws Exception {
 		  
@@ -93,8 +95,9 @@ import oracle.net.aso.a;
 		  }
 
 	  }//insertArticle end
-	  
-	  //글 갯수 구하기
+
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 글 갯수 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
+
 	  public int getArticleCount() throws Exception { 
 		  int x =0;
 		  try {
@@ -117,7 +120,8 @@ import oracle.net.aso.a;
 	  }//getArticleCount end
 	  
 	  
-	  //글목록 구하기
+  //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 글 목록 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//	  
+	  
 	  public List getArticles(int start, int end) throws Exception{
 		  List articleList = null;
 		  sql=new StringBuilder();
@@ -170,6 +174,8 @@ import oracle.net.aso.a;
 	  }//getArticles end
 	  
 	  
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 상세보기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//	  
+	  
 	  public BoardDataBean getArticle(int num) throws Exception{
 		  BoardDataBean article = null;
 		  
@@ -186,7 +192,7 @@ import oracle.net.aso.a;
 			  sql.append(" FROM board WHERE num=? ");
 			  pstmt = con.prepareStatement(sql.toString());
 			  pstmt.setInt(1, num);
-			  rs=pstmt.executeQuery();
+			  rs = pstmt.executeQuery();
 			  if(rs.next()) {
 				  article = new BoardDataBean();
 				  article.setNum(rs.getInt("num"));
@@ -212,7 +218,71 @@ import oracle.net.aso.a;
 		  return article;
 		  
 	  }//getArticle end
-	  	  
+
+	  
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 수 정 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//	  
+	  
+	  
+	  public BoardDataBean updateform(BoardDataBean article) {
+			try {
+				con = dbopen.getConnection();
+				sql = new StringBuilder();
+				sql.append(" SELECT writer, email, subject, content, passwd"); 
+				sql.append(" FROM BOARD");
+				sql.append(" WHERE num=? AND passwd=?");
+				
+				pstmt=con.prepareStatement(sql.toString());
+				pstmt.setInt(1, article.getNum());
+				pstmt.setString(2, article.getPasswd());
+				rs=pstmt.executeQuery();
+			    if(rs.next()){
+			    	//System.out.println("rs있음");
+			        article =new BoardDataBean();
+			        article.setWriter(rs.getString("writer"));
+			        article.setEmail(rs.getString("email"));
+			        article.setSubject(rs.getString("subject"));
+			        article.setContent(rs.getString("content"));
+			        article.setPasswd(rs.getString("passwd"));        
+			      }else {
+			    	  article=null;
+			    	  //System.out.println("없음");	
+			      }
+			}catch (Exception e) {
+				System.out.println("글 수정 실패 : " + e);
+			}finally {
+				dbclose.close(con, pstmt, rs);
+			}//try end
+			return article;
+					
+		}//updateform end
+	
+	 public int updateproc(BoardDataBean article) {
+			int res = 0;
+			try {
+				con = dbopen.getConnection();
+				sql = new StringBuilder();
+				sql.append(" UPDATE BOARD ");
+				sql.append(" SET writer=?, email=?, subject=?, content=?, passwd=? ");
+				sql.append(" WHERE num= ? ");
+				
+				pstmt = con.prepareStatement(sql.toString());
+				pstmt.setString(1, article.getWriter());
+				pstmt.setString(2, article.getEmail());
+				pstmt.setString(3, article.getSubject());
+		        pstmt.setString(4, article.getContent());
+		        pstmt.setString(5, article.getPasswd());
+		        pstmt.setInt(6, article.getNum());
+		        res = pstmt.executeUpdate();
+			}catch (Exception e) {
+				System.out.println(" 실패 : " + e);
+			}finally {
+				dbclose.close(con, pstmt);
+			}//try end
+			return res;
+		}//updateproc end
+	  
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 삭 제 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
+	 
 	  public int delete(BoardDataBean article) throws Exception { // 
 		  int res = 0;
 		  	try {

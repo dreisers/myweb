@@ -3,7 +3,7 @@
 <%@ include file='../header.jsp'%>
   <h1>* 수 정 *</h1>
   <p><a href="bbsList.jsp">[글목록]</a></p>
-	<form method = "post" action="bbsUpdateForm.jsp" onsubmit="return upCheck(this)">  
+	<form method = "get" action="bbsUpdateForm.jsp" onsubmit="return upCheck(this)">  
 	      <input type="hidden" name="bbsno" value="<%=request.getParameter("bbsno") %>">
 	      <input type="hidden" name="col" value="<%=col%>">
 		  <input type="hidden" name="word" value="<%=word%>">

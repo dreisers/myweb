@@ -4,11 +4,10 @@
 <%@ include file="/view/color.jspf" %>
 
 <!--  본문시작 -->
-<h1>* 삭 제 *</h1>
 <p>
 	<a href="bbslist.do">[글목록]</a>
 </p>
-<form method="post" action="bbsdelproc.do">
+<form method="post" action="${page }.do">
 	<input type="hidden" name="num" value="${num }">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table style="margin: 0 auto; text-align: center">

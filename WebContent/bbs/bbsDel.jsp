@@ -3,7 +3,7 @@
 <%@ include file='../header.jsp'%>
 <!--  본문시작 -->
 	  <h1>* 삭 제 *</h1>
-  <p><a href="bbslist.do">[글목록]</a></p>
+  <p><a href="bbslist.jsp">[글목록]</a></p>
 	<form method = "get" action="bbsDelProc.jsp" onsubmit="return pwCheck(this)">  
 	      <input type="hidden" name="bbsno" value="<%=request.getParameter("bbsno") %>">
 	      <input type="hidden" name="nowPage" value="<%=nowPage%>">

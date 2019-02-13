@@ -37,8 +37,8 @@
 		</tr>
 		<tr>
 			<td colspan=4 bgcolor="${value_c }">
-				<input type="button" value="글수정" onclick="location.href='./bbsupdateform.do?num=${article.num }&pageNum=${pageNum }'">
-				<input type="button" value="글삭제" onclick="location.href='./bbsdel.do?num=${article.num }&pageNum=${pageNum }'">
+				<input type="button" value="글수정" onclick="location.href='./pwcheck.do?num=${article.num }&pageNum=${pageNum }&page=bbsupdate'">
+				<input type="button" value="글삭제" onclick="location.href='./pwcheck.do?num=${article.num }&pageNum=${pageNum }&page=bbsdel'">
 				<input type="button" value="답변" onclick="location.href='./bbsform.do?num=${article.num }&ref=${article.ref }&re_step=${article.re_step }&re_level=${article.re_level }'">
 				<input type="button" value="목록" onclick="location.href='./bbslist.do?pageNum=${pageNum }'">
 			</td>

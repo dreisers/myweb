@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.action.CommandAction;
 
-public class BbsDelProc implements CommandAction{
+public class BbsUpdate implements CommandAction{
 
+	// 비밀번호를 입력받아서 삭제 진행 시켜주는 폼 
+	
 	@Override
 	public String requestPro(HttpServletRequest req, HttpServletResponse resp) throws Throwable {
 		
@@ -16,17 +18,20 @@ public class BbsDelProc implements CommandAction{
 		String passwd = req.getParameter("passwd");
 		String pageNum = req.getParameter("pageNum"); 
 		
+		
 		article.setNum(num);
 		article.setPasswd(passwd);
 		
 		BoardDBBean dao = new BoardDBBean();
-		int res = dao.delete(article);
-		 
+		article = dao.updateform(article);
+		
 		req.setAttribute("num", new Integer(num));
 		req.setAttribute("pageNum", new Integer(pageNum));
-		req.setAttribute("res", res);
+		req.setAttribute("article", article);
+//		System.out.println(passwd);
+//		System.out.println(article);
 		
-		return "deleteProc.jsp";
+		return "bbsUpdate.jsp";
 	}
 
 }//class end

@@ -30,7 +30,21 @@ public class BbsInsert implements CommandAction{
 		BoardDBBean dao = new BoardDBBean();  //DAO
 		dao.insertArticle(article);
 		
-		return "insertProc.jsp";
+		
+		//1)
+		//return "insertProc.jsp";
+		
+		//2) View페이지 재구성
+		String root = Utility.getRoot();
+		String msg = "<meta http-equiv='refresh' content='0;url=" + root + "/bbs2/bbslist.do'>";
+		req.setAttribute("msg", msg);
+		
+		//자주 쓰이는 문법
+		//msg += "<script>";
+		//msg += "alert('성공')";
+		//msg += "</script>";
+		
+		return "bbsResult.jsp";
 		
 	}//requestPro end
 	

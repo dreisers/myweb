@@ -46,6 +46,7 @@
     </div>
   </div>
 </nav>
-<div class="container-fluid bg-3 text-center"></div>
-<div class="row"></div>
-<div class="col-sm-12"></div>
+
+<div class="container-fluid bg-3 text-center">
+	<div class="row">
+		<div class="col-sm-12">
