@@ -21,11 +21,9 @@ if(s_id.equals("guest") || s_passwd.equals("guest") || s_mlevel.equals("guest"))
 	onsubmit="return loginCheck(this)">
 	<table align="center">
 		<tr>
-			<td><input type="text" name="id" id="id" value="<%=c_id%>"
-				placeholder="아이디" required="required"></td>
+			<td><input type="text" name="id" id="id" value="<%=c_id%>" placeholder="아이디" required="required"></td>
 			<td>
-			<td rowspan="2"><input type="image" src="../images/bt_login.gif"
-				style="cusor: pointer"></td>
+			<td rowspan="2"><input type="image" src="../images/bt_login.gif" style="cusor: pointer"></td>
 		</tr>
 		<tr>
 			<td><input type="password" name="passwd" id="passwd"
@@ -34,9 +32,11 @@ if(s_id.equals("guest") || s_passwd.equals("guest") || s_mlevel.equals("guest"))
 		<tr>
 			<td colspan="2" style="font-size: 13px;">
 				<p>
-					<input type="checkbox" name="c_id" value="SAVE"
-						<%if(!(c_id.isEmpty())){out.print("checked");}%>>아이디저장
-					&nbsp;&nbsp; <a href="agreement.jsp">회원가입</a> &nbsp;&nbsp; <a href="find_idpw.jsp">아이디/비번찾기</a>
+					<input type="checkbox" name="c_id" value="SAVE" <%if (!(c_id.isEmpty())) {out.print("checked");}%>>아이디저장
+					&nbsp;&nbsp;
+					<a href="agreement.jsp">회원가입</a>
+					&nbsp;&nbsp;
+					<a href="find_idpw.jsp">아이디/비번찾기</a>
 				</p>
 			</td>
 		</tr>

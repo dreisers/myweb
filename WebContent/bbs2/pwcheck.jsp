@@ -4,9 +4,6 @@
 <%@ include file="/view/color.jspf" %>
 
 <!--  본문시작 -->
-<p>
-	<a href="bbslist.do">[글목록]</a>
-</p>
 <form method="post" action="${page }.do">
 	<input type="hidden" name="num" value="${num }">
 	<input type="hidden" name="pageNum" value="${pageNum }">

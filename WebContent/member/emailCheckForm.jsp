@@ -11,7 +11,7 @@
 		<h3> 이메일 중복확인</h3>
 		<form method="post" action="emailCheckProc.jsp" onsubmit="return emailCheck(this)">
 			이메일 : <input type="text" name="email" maxlength="30" autofocus="autofocus"> 
-  					 <input type="submit" vlaue="중복확인">
+  					 <input type="submit" value="중복확인">
 		</form>
 	</div>
 	

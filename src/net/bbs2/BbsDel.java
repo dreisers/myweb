@@ -7,9 +7,7 @@ import net.action.CommandAction;
 import net.utility.Utility;
 
 public class BbsDel implements CommandAction{
-
 	// 비밀번호를 입력받아서 삭제 진행 시켜주는 폼 
-	
 	@Override
 	public String requestPro(HttpServletRequest req, HttpServletResponse resp) throws Throwable {
 		
@@ -31,17 +29,14 @@ public class BbsDel implements CommandAction{
 		String msg = "";
 		if(res==1) {
 			msg += "<script>";
-			msg += " alert('글 삭제 성공')";
+			msg += " alert('글 삭제 성공');";
 			msg += "</script>";
 			msg += "<meta http-equiv='refresh' content='0;url=" + root + "/bbs2/bbslist.do'>";
 		}else {
-			msg += "<!DOCTYPE html>";
-			msg += "<html><body>";
 			msg += "<script>";
-			msg += " alert('글 삭제 실패')";
-			msg += " history.go(-1)";
+			msg += " alert('글 삭제 실패');";
+			msg += " location.href='bbslist.do' ;";
 			msg += "</script>";
-			msg += "</body></html>";
 		}//if end
 		
 		req.setAttribute("num", new Integer(num));
@@ -54,5 +49,5 @@ public class BbsDel implements CommandAction{
 		//return "bbsdel.jsp";
 		return "bbsResult.jsp";
 	}
-
+	
 }//class end

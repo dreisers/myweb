@@ -30,7 +30,7 @@ import oracle.net.aso.a;
 	    dbclose=new DBClose();
 	  }
 	  
-	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 답 변 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
+	//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 글쓰기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
 
 	  public void insertArticle(BoardDataBean article) throws Exception {
 		  

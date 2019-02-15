@@ -1,4 +1,4 @@
-package net.bbs2;
+package net.member2;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,13 +11,8 @@ public class PwCheck implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest req, HttpServletResponse resp) throws Throwable {
 		
-		int num = Integer.parseInt(req.getParameter("num"));
-		String pageNum = req.getParameter("pageNum");
-		String page = req.getParameter("page");
-		
+		String page = req.getParameter("page").trim();
 		 
-		req.setAttribute("num", new Integer(num));
-		req.setAttribute("pageNum", new Integer(pageNum));
 		req.setAttribute("page", new String(page));
 		
 		return "pwcheck.jsp";

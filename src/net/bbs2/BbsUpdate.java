@@ -7,7 +7,6 @@ import net.action.CommandAction;
 
 public class BbsUpdate implements CommandAction{
 
-	// 비밀번호를 입력받아서 삭제 진행 시켜주는 폼 
 	
 	@Override
 	public String requestPro(HttpServletRequest req, HttpServletResponse resp) throws Throwable {

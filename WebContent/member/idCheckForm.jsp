@@ -11,7 +11,7 @@
 		<h3> 아이디 중복확인</h3>
 		<form method="post" action="idCheckProc.jsp" onsubmit="return blankCheck(this)">
 			아이디 : <input type="text" name="id" maxlength="20" autofocus="autofocus"> 
-  					 <input type="submit" vlaue="중복확인">
+  					 <input type="submit" value="중복확인">
 		</form>
 	</div>
 	

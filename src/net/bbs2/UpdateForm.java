@@ -38,17 +38,14 @@ public class UpdateForm implements CommandAction{
 		String msg = "";
 		if(res==1) {
 			msg += "<script>";
-			msg += " alert('글 수정 성공')";
+			msg += " alert('글 수정 성공');";
 			msg += "</script>";
 			msg += "<meta http-equiv='refresh' content='0;url=" + root + "/bbs2/bbslist.do'>";
 		}else {
-			msg += "<!DOCTYPE html>";
-			msg += "<html><body>";
 			msg += "<script>";
-			msg += " alert('글 수정 실패')";
-			msg += " history.go(-1)";
+			msg += " alert('글 수정 실패');";
+			msg += " location.href='./bbslist.do;";
 			msg += "</script>";
-			msg += "</body></html>";
 		}//if end
 		
 		

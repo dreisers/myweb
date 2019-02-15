@@ -98,7 +98,7 @@ function idCheck() {
 	var y = (sy / 2) - 25;
 
 	// 화면이동
-	win.moveTo(x, y);
+	win.moveTo(x, y);	
 
 }// idCheck end
 
@@ -228,4 +228,11 @@ function pdsCheck(f) {
 	return true;
 }//pdsCheck end
 
+function filename(){ //현재 파일명 구하기
+	var Filename = document.URL.substring(document.URL.lastIndexOf("/")+1, document.URL.length);
+	
+	//현재 폴더명 구하기
+	//var thisfilefoldername = thisfilefullname.substring(thisfilefullname.lastIndexOf('.'), 0);
+
+}//filename end
 	
