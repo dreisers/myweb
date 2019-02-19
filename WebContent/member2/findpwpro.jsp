@@ -5,16 +5,16 @@
 <!--  본문시작 -->
 
 		<c:choose>
-		<c:when test="${passwd==null }"> 
+		<c:when test="${res!=1 }"> 
 			<p>비밀번호 찾기 실패</p>
 			<a href='javascript:history.back();'>[다시시도]</a>
 		</c:when>
-		<c:otherwise>
+		<c:when test="${res==1 }">
 			<script>
-			alert("${email}" + ' 으로 임시메일 발송'")
-			window.location = 'loginForm.do'
+			alert("${email}" + " 으로 임시메일 발송");
+			window.location = 'loginForm.do';
 			</script>
-		</c:otherwise>
+		</c:when>
 		</c:choose>
 			
 			

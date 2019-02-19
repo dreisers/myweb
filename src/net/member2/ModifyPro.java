@@ -39,7 +39,6 @@ public class ModifyPro implements CommandAction{
 		
 		int res = dao.modifyproc(dto); 
 		
-		
 		req.setAttribute("res", res);
 		req.setAttribute("passwd", passwd);
 		req.setAttribute("mname", mname);
@@ -49,11 +48,6 @@ public class ModifyPro implements CommandAction{
 		req.setAttribute("address1", address1);
 		req.setAttribute("address2", address2);
 		
-		System.out.println(res);
-		System.out.println(passwd);
-		System.out.println(mname);
-		System.out.println(tel);
-		System.out.println(email);
 		return "modifypro.jsp";
 		
 	}

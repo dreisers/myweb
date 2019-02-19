@@ -23,13 +23,16 @@ public class ModifyForm implements CommandAction{
 		
 		
 		MemberDAO dao = new MemberDAO();
-		dao.modify(id);
+		dto = dao.modify(id);
 		
 		req.setAttribute("id", id);
 		req.setAttribute("passwd", passwd);
+		req.setAttribute("dto", dto);
 		System.out.println(id);
 		System.out.println(passwd);
+		
 		return "modifyform.jsp";
+		
 		
 	}
 	

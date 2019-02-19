@@ -29,11 +29,11 @@
 </tr>
 <tr>
 	<th class="th1">* 변경 비밀번호</th>
-	<td class="td1"><input type="password" name="passwd" id="passwd" size="10" required class="membertext">* 영어/숫자/특수문자 포함 5~10글자 이내</td>
+	<td class="td1"><input type="password" name="passwd" id="passwd" size="10" class="membertext">* 영어/숫자/특수문자 포함 5~10글자 이내</td>
 </tr>
 <tr>
 	<th class="th1">* 변경 비밀번호 확인</th>
-	<td class="td1"><input type="password" name="repasswd" id="repasswd" size="10" required class="membertext"></td>
+	<td class="td1"><input type="password" name="repasswd" id="repasswd" size="10" class="membertext"></td>
 </tr>
 <tr>
 	<th class="th1">* 이름</th>

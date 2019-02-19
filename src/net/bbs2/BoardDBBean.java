@@ -237,7 +237,7 @@ import oracle.net.aso.a;
 				rs=pstmt.executeQuery();
 			    if(rs.next()){
 			    	//System.out.println("rs¿÷¿Ω");
-			        article =new BoardDataBean();
+			        article = new BoardDataBean();
 			        article.setWriter(rs.getString("writer"));
 			        article.setEmail(rs.getString("email"));
 			        article.setSubject(rs.getString("subject"));

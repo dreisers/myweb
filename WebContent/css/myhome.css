@@ -31,7 +31,7 @@ body {
 
 .tg {
 	font-family: Arial, sans-serif;
-	font-size: 16px;
+	font-size: 13px;
 	padding: 10px 5px;
 	border-style: solid;
 	word-break: normal;
@@ -44,11 +44,10 @@ body {
 	border-spacing: 0;
 	text-align: center;
 	border: 1px solid #444444;
-	letter-spacing: 20px;
 }
 
 .tg-td1 {
-	background-color: ff7d7d26;
+	background-color: #f8f98f;
 	font-weight: bold;
 	color: #000000;
 	border-color: #000000;
@@ -179,4 +178,4 @@ body {
 	width: 75px;
 	height: 27px;
 	font-size: 14px;
-}
+	}

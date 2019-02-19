@@ -5,6 +5,9 @@
 <h3> * 글 수정 *</h3>
 	<c:choose>
 	<c:when test="${article==null }">
+		<script>
+		alert("${article}");
+		</script>
 		비밀번호 틀림<br>
 		<a href='javascript:history.back();'>[다시시도]</a>
 		</c:when>

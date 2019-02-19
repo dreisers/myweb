@@ -3,8 +3,12 @@
 
 <!-- 본문 시작 memberForm.jsp-->
 * 회/원/정/보/수/정 *<br><br>
-
-
+<c:choose>
+<c:when test="${dto==null }">
+비밀번호 틀림<br>
+<a href='javascript:history.back();'>[다시시도]</a>
+</c:when>
+<c:otherwise>
 <form name="regForm" method="post" action="modifyPro.do" onsubmit="return memberCheck(this)">
 <input type="hidden" name="id" value="${id }">
 <span style="text-align:right; color:red; font-weight:bold">* 필수입력</span>
@@ -26,43 +30,43 @@
 </tr>
 <tr>
 	<th class="th1">* 이름</th>
-	<td class="td1"><input type="text" name="mname" id="mname" size="10" value="${dto.getMname() }" required class="membertext"></td>
+	<td class="td1"><input type="text" name="mname" id="mname" size="10" value="${dto.mname }" required class="membertext"></td>
 </tr>
 <tr>
 	<th class="th1">* 이메일</th>
 	<td class="td1">
-      <input type="text" name="email" id="email" size="20" value="${dto.getEmail() }" readonly class="membertext">
+      <input type="text" name="email" id="email" size="20" value="${dto.email }" readonly class="membertext">
       <input type="button" value="Email 중복확인" onclick="emailCheck()" class="button1">	
 	</td>
 </tr>
 <tr>
-	<th class="th2">전화번호</th>
-	<td class="td1"><input type="text" name="tel" id="tel" size="13" value="${Utility.checkNull(dto.getTel()) }" class="membertext"></td>
+	<th class="th1">* 전화번호</th>
+	<td class="td1"><input type="text" name="tel" id="tel" size="13" value="${dto.tel }" required class="membertext"></td>
 </tr>
 <tr>
 	<th class="th2">우편번호</th>
 	<td class="td1">
-      <input type="text" name="zipcode" id="zipcode" size="7" value="${Utility.checkNull(dto.getZipcode()) }" readonly class="membertext">
+      <input type="text" name="zipcode" id="zipcode" size="7" value="${dto.zipcode }" readonly class="membertext">
       <input type="button" value="주소찾기"  onclick="DaumPostcode()" class="button1">	
 	</td>
 </tr>
 <tr>  
   <th class="th2">주소</th>
-  <td class="td1"><input type="text" name="address1" id="address1" size="25" value="${Utility.checkNull(dto.getAddress1()) }" readonly class="membertext"></td>
+  <td class="td1"><input type="text" name="address1" id="address1" size="25" value="${dto.address1 }" readonly class="membertext"></td>
 </tr>
 <tr>  
   <th class="th2">나머지주소</th>
-  <td class="td1"><input type="text" name="address2" id="address2" size="30" value="${Utility.checkNull(dto.getAddress2()) }" class="membertext"></td>
+  <td class="td1"><input type="text" name="address2" id="address2" size="30" value="${dto.address2 }" class="membertext"></td>
 </tr>
 <tr>  
   <th class="th2">직업</th>
   <td class="td1"><select name="job"  id="job" class="membertext">
           <option value="0">선택하세요.</option>
-          <option value="A01" <c:if test="${dto.getjob().equals('A01')}"> selected </c:if>>회사원</option>
-          <option value="A02" <c:if test="${dto.getjob().equals('A02')}"> selected </c:if>>전산관련직</option>
-		  <option value="A03" <c:if test="${dto.getjob().equals('A03')}"> selected </c:if>>학생</option>
-		  <option value="A04" <c:if test="${dto.getjob().equals('A04')}"> selected </c:if>>주부</option>
-		  <option value="A05" <c:if test="${dto.getjob().equals('A05')}"> selected </c:if>>기타</option>
+          <option value="A01" <c:if test="${dto.job=='A01'}"> selected </c:if>>회사원</option>
+          <option value="A02" <c:if test="${dto.job=='A02'}"> selected </c:if>>전산관련직</option>
+		  <option value="A03" <c:if test="${dto.job=='A03'}"> selected </c:if>>학생</option>
+		  <option value="A04" <c:if test="${dto.job=='A04'}"> selected </c:if>>주부</option>
+		  <option value="A05" <c:if test="${dto.job=='A05'}"> selected </c:if>>기타</option>
         </select>
   </td>
 </tr>
@@ -143,10 +147,13 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
     }
+    
 </script>
 <!-- ----- DAUM 우편번호 API 종료----- -->
 
 </form>
+</c:otherwise>
+</c:choose>
 
 <script>
 

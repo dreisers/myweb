@@ -32,6 +32,7 @@ public class FindPw implements CommandAction{
 		
 		MemberDAO dao = new MemberDAO();
 		dto = dao.find_pw(dto);
+		int res;
 		
 		String mailServer = "mw-002.cafe24.com";
 		Properties props = new Properties();
@@ -75,14 +76,14 @@ public class FindPw implements CommandAction{
 			msg.setContent(msgText, "text/html; charset=UTF-8");
 			//메일 전송
 			Transport.send(msg);
-			System.out.println(email + "으로 임시번호를 발송했습니다." );
-			System.out.println("<p><a href='loginForm.jsp;'>[로그인 화면]</a></p>");
-		}catch(Exception e){
 			
-			System.out.println("<p>메일 전송 실패" + e + "</p>");
-			System.out.println("<p><a href='javascript:history.back();'>[다시시도]</a></p>");
+			res= 1;
+		}catch(Exception e){
+			res = 0;
 		}//try end
 		
+		req.setAttribute("res", res);
+		req.setAttribute("email", email);
 		
 		return "findpwpro.jsp";
 	}

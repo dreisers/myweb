@@ -67,7 +67,7 @@
 <tr>
 	<td colspan="2" style="text-align:center">
 		<input type="submit" value="회원가입" class="button2"/>
-		<input type="reset"  value="취소" class="button2"/>
+		<input type="button" value="취소" class="button2" onclick="javascript:history.back();"/>
 	</td>
 </tr>
 </table>

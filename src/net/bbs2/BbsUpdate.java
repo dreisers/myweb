@@ -27,8 +27,7 @@ public class BbsUpdate implements CommandAction{
 		req.setAttribute("num", new Integer(num));
 		req.setAttribute("pageNum", new Integer(pageNum));
 		req.setAttribute("article", article);
-//		System.out.println(passwd);
-//		System.out.println(article);
+		System.out.println(passwd);
 		
 		return "bbsUpdate.jsp";
 	}

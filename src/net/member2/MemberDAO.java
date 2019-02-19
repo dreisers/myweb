@@ -158,6 +158,8 @@ public class MemberDAO {
 				dto.setAddress1(rs.getString("address1"));
 				dto.setAddress2(rs.getString("address2"));
 				dto.setJob(rs.getString("job"));
+			}else {
+				dto=null;
 			}
 		} catch (Exception e) {
 			System.out.println("실패" + e);
@@ -176,19 +178,26 @@ public class MemberDAO {
 			
 			sql = new StringBuilder();
 			sql.append(" UPDATE MEMBER");
-			sql.append(" SET passwd=? ,mname=?, tel=?, email=?, zipcode=?, address1=?, address2=?, job=?");
-			sql.append(" WHERE id=? AND passwd=?");
+			sql.append(" SET mname=?, tel=?, email=?, zipcode=?, address1=?, address2=?, job=?");
+			if(dto.getPasswd()==null) { //비밀번호 변경 하는 경우
+				sql.append(", passwd=?");
+			}
+			sql.append(" WHERE id=?");
 			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setString(1, dto.getPasswd());
-			pstmt.setString(2, dto.getMname());
-			pstmt.setString(3, dto.getTel());
-			pstmt.setString(4, dto.getEmail());
-			pstmt.setString(5, dto.getZipcode());
-			pstmt.setString(6, dto.getAddress1());
-			pstmt.setString(7, dto.getAddress2());
-			pstmt.setString(8, dto.getJob());
-			pstmt.setString(9, dto.getId());
-			pstmt.setString(10, dto.getPasswd());
+			pstmt.setString(1, dto.getMname());
+			pstmt.setString(2, dto.getTel());
+			pstmt.setString(3, dto.getEmail());
+			pstmt.setString(4, dto.getZipcode());
+			pstmt.setString(5, dto.getAddress1());
+			pstmt.setString(6, dto.getAddress2());
+			pstmt.setString(7, dto.getJob());
+			if(dto.getPasswd()==null) { //비밀번호 변경 하는 경우
+				pstmt.setString(8, dto.getId());
+				pstmt.setString(9, dto.getPasswd());
+			}else {  //비밀번호 변경 안하는 경우
+				pstmt.setString(8, dto.getId());
+			}
+				
 			res = pstmt.executeUpdate();
 
 		} catch (Exception e) {
